@@ -37,7 +37,9 @@
 /*
 Put libpowerusb.dylib & pwrusbcmd in binary app folder
 I tried to integrate their source code but got internal NSExceptions from their dynlib
-I couldn't debug
+I couldn't debug.
+
+Removed pause to enter on pwrusbcmd to prevent getting stuck when not connected
 */
 
 
@@ -58,7 +60,14 @@ class ofxPowerUSB {
             cmd+=" "+ofToString(ofxPowerUSB::socketStates[i]);
         }
         cout<<cmd<<endl;
-        ofSystem(cmd);
+        //cout<<ofSystem(cmd);//this doesn't give output
+        
+      
+        //convert shell command string to chars for system call
+        char *  shPathChar = new char[ cmd.length() + 1 ];
+        strcpy( shPathChar, cmd.c_str() );
+        //execute the shell command
+        system(shPathChar);
     };
 
     static void turnOffSocket(int i){
@@ -68,7 +77,13 @@ class ofxPowerUSB {
         for(int i = 0;i<ofxPowerUSB::socketStates.size();i++){
             cmd+=" "+ofToString(ofxPowerUSB::socketStates[i]);
         }
-        ofSystem(cmd);
+        cout<<cmd<<endl;
+        //cout<<ofSystem(cmd);
+        //convert shell command string to chars for system call
+        char *  shPathChar = new char[ cmd.length() + 1 ];
+        strcpy( shPathChar, cmd.c_str() );
+        //execute the shell command
+        system(shPathChar);
     };
 
 
