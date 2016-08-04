@@ -35,11 +35,24 @@
 //http://www.pwrusb.com/powerUSB-basic.html
 
 /*
-Put libpowerusb.dylib & pwrusbcmd in binary app folder
+1. Put libpowerusb.dylib & pwrusbcmd in binary app folder.
+2. You might also need to add to Resource folder...ie.
+BuildPhases>Copy files
+libpowerusb.dylib
+Destination Resources
+
+3. But I had to remove it from Link with binary list
+
+The expected paths for the dylib image behaved differently on different OSX systems
+
+
 I tried to integrate their source code but got internal NSExceptions from their dynlib
 I couldn't debug.
 
-Removed pause to enter on pwrusbcmd to prevent getting stuck when not connected
+Removed pause to enter on pwrusbcmd to prevent getting stuck when not connected.
+
+
+
 */
 
 
