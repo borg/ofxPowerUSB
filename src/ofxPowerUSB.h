@@ -77,10 +77,10 @@ class ofxPowerUSB {
         
       
         //convert shell command string to chars for system call
-        char *  shPathChar = new char[ cmd.length() + 1 ];
-        strcpy( shPathChar, cmd.c_str() );
+        //char *  shPathChar = new char[ cmd.length() + 1 ];
+        //strcpy( shPathChar, cmd.c_str() );
         //execute the shell command
-        system(shPathChar);
+        system(cmd.c_str());
     };
 
     static void turnOffSocket(int i){
@@ -93,10 +93,10 @@ class ofxPowerUSB {
         cout<<cmd<<endl;
         //cout<<ofSystem(cmd);
         //convert shell command string to chars for system call
-        char *  shPathChar = new char[ cmd.length() + 1 ];
-        strcpy( shPathChar, cmd.c_str() );
+        //char *  shPathChar = new char[ cmd.length() + 1 ];
+        //strcpy( shPathChar, cmd.c_str() );
         //execute the shell command
-        system(shPathChar);
+        system(cmd.c_str() );
     };
 
 
